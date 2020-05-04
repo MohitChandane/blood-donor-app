@@ -1,0 +1,16 @@
+.login-page{
+    margin: 0 auto;
+    width: 250px;
+    margin-top: 14%;
+}
+span {
+    display: block;
+    margin-top: 16px;
+}
+
+.btn-wrapper {
+    margin-top: 26px;
+}
+.btn-success {
+    float: right;
+}
