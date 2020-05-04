@@ -12,10 +12,15 @@ export class RegisterComponent implements OnInit {
   hideRegisterPage: boolean;
   public name: string;
   public detailsForm: FormGroup;
+  DBdata;
   constructor(private router: Router, private registerUserSer: RegisterUserService) { }
 
   ngOnInit() {
     this.initForm();
+    this.registerUserSer.GetUser().subscribe((data) =>  {
+      console.log('oninit data is ', data);
+      this.DBdata = data;
+    });
   }
   onClickCancel() {
     this.router.navigateByUrl('');
@@ -33,11 +38,19 @@ export class RegisterComponent implements OnInit {
    });
   }
 
-  onClickSubmit() {
+  onClickSubmit(user) {
     this.name = this.detailsForm.controls.firstName.value;
-    this.registerUserSer.getAllUsers().subscribe(data => {
-      console.log('data respose', data);
-    });
+    // this.registerUserSer.getAllUsers().subscribe(data => {
+    //   console.log('data respose', data);
+    // });
+    
+    this.registerUserSer.saveUser(this.name)
+      .subscribe(data => {
+        console.log('sadsadsadsadsadsa', data);
+
+        this.ngOnInit();
+      }
+        , error => error )
 
     // this.registerUserSer.postUser({name: 'user1'}).subscribe(data => {
     //   console.log('post data ', data);

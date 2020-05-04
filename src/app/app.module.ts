@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterUserService } from './register-user.service';
 
 @NgModule({
    declarations: [
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
       ReactiveFormsModule,
       HttpClientModule
    ],
-   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, RegisterUserService],
    bootstrap: [
       AppComponent
    ]
