@@ -38,19 +38,19 @@ export class RegisterComponent implements OnInit {
    });
   }
 
-  onClickSubmit(user) {
+  onClickSubmit() {
     this.name = this.detailsForm.controls.firstName.value;
     // this.registerUserSer.getAllUsers().subscribe(data => {
     //   console.log('data respose', data);
     // });
-    
-    this.registerUserSer.saveUser(this.name)
-      .subscribe(data => {
-        console.log('sadsadsadsadsadsa', data);
+    console.log('asdsadsdasdsadsad', this.name)
+    // this.registerUserSer.saveUser(this.name)
+    //   .subscribe(data => {
+    //     console.log('sadsadsadsadsadsa', data);
 
-        this.ngOnInit();
-      }
-        , error => error )
+    //     this.ngOnInit();
+    //   }
+    //     , error => error )
 
     // this.registerUserSer.postUser({name: 'user1'}).subscribe(data => {
     //   console.log('post data ', data);
