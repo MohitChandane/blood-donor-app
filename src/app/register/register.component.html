@@ -43,7 +43,11 @@
       <input type="password" class="form-control" id="password" name="password" formControlName="password"
         placeholder="*****">
     </div>
-
+    <div class="form-group">
+      <label for="password" class="control-label">When you donated blood last time ?</label>
+      <input type="date" class="form-control" formControlName="lastDonated">
+    </div>
+    
     <div>
       <span class="form-group">
         <button type="submit" class="btn btn-primary btn-submit" (click)="onClickSubmit()">Submit</button>
