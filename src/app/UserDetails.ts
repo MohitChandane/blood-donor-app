@@ -1,4 +1,4 @@
-export interface UserDetails {
+export interface IUserDetails {
     firstName?: string;
     lastName?: string;
     mobileNumber?: string;
@@ -6,4 +6,5 @@ export interface UserDetails {
     emailID?: string;
     username?: string;
     password?: string;
+    lastDonated?: string;
 }

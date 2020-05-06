@@ -1,16 +1,21 @@
-
-
 const express = require('express')
-const bodyParser = require('body-parser');  
-// const {mongoose} = require('./src/mongo')
-const mongoose = require ('mongoose');
- const {User} = require('./user.model')
-const app =  express();
-mongoose.connect('mongodb://localhost:27017/bloodDonorDB', {useNewUrlParser: true})
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const { User } = require('./user.model')
+const postRoutes = require('./post')
+const app = express();
 
+const cors = require('cors')
 
-// const User = mongoose.model('User', {name: String});
+var corsOptions = {
+  origin: 'http://localhost:4200',
+  optionsSuccessStatus: 200  
+}
 
+app.use(cors(corsOptions))
+mongoose.connect('mongodb://localhost:27017/bloodDataBank', {useNewUrlParser: true})
+
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.get('/',(req,res) => {
@@ -26,23 +31,7 @@ app.get('/users', (req, res) => {
     })
 })
 
-app.post('/users', (req,res) => {
-    console.log('reqqqqqw', req.body);
-    let user = {
-        name: req.body.name,
-        address: req.body.address
-    };
-    const newUser = new User(
-        user
-    );
-    //  newUser.save().then(function(){
-    //     console.log('tested');
-    //     res.send(user);
-    // });
-    newUser.save().then((data) => {
-        res.send(data);
-    })
-})
+app.post('/users', postRoutes.postRoute )
 
 app.patch('/users/:id', (req, res) => {
     User.findOneAndUpdate({_id: req.params.id},{
