@@ -42,9 +42,6 @@ export class RegisterComponent implements OnInit {
 
   public onClickSubmit() {
     this.name = this.detailsForm.controls.firstName.value;
-    console.log('asdsadsdasdsadsad', this.name)
-   
-    this.name = this.detailsForm.controls.firstName.value;
     this.userData.firstName = this.detailsForm.controls.firstName.value;
     this.userData.lastName = this.detailsForm.controls.lastName.value;
     this.userData.mobileNumber = this.detailsForm.controls.mobileNumber.value;
@@ -53,9 +50,14 @@ export class RegisterComponent implements OnInit {
     this.userData.username = this.detailsForm.controls.username.value;
     this.userData.password = this.detailsForm.controls.password.value;
     this.userData.lastDonated = this.detailsForm.controls.lastDonated.value;
-    console.log('user data', this.userData);
     this.registerUserSer.postUserDetails(this.userData).subscribe((data) => {
-console.log('dataaaaaaaaaa', data);
+        console.log('dataaaaaaaaaa', data);
+        if(data){
+          console.log('success');
+        } else {
+          console.log('invalid email provided');
+        }
+
     } );
 
   }

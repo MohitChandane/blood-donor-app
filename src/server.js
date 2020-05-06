@@ -1,14 +1,9 @@
-
-const nodemailer = require('nodemailer'); // temp
 const express = require('express')
 const bodyParser = require('body-parser');
-// const {mongoose} = require('./src/mongo')
 const mongoose = require('mongoose');
 const { User } = require('./user.model')
-//const mailSender = require ('./mail-sender')
+const postRoutes = require('./post')
 const app = express();
-
-// const mailer = mailSender();
 
 const cors = require('cors')
 
@@ -36,55 +31,7 @@ app.get('/users', (req, res) => {
     })
 })
 
-app.post('/users', (req,res) => {
-    console.log('reqqqqqw', req.body);
-    let user = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        address: req.body.address,
-        mobileNumber: req.body.mobileNumber,
-        address: req.body.address,
-        emailID: req.body.emailID,
-        username: req.body.username,
-        password: req.body.password,
-        lastDonated: req.body.lastDonated
-    };
-   // typeof window !== 'undefined' && window.localStorage.setItem("emailID", user.emailID); 
-  //var sendID = user.emailID;
-   // module.exports = user.emailID;
-    const newUser = new User(
-        user
-    );
-    newUser.save().then((data) => {
-        res.send(data);
-    })
-    const transporter = nodemailer.createTransport({
-        service:'gmail',
-        auth: {
-            user: 'testapplication1394@gmail.com',
-            pass: '1q2w3e4r5t_'
-        }
-    });
-    // var recipientID =  localStorage.getItem("emailID ");
-    //var recipientID = typeof window !== 'undefined' && window.localStorage.getItem("emailID");
-    //console.log('email id in mail sender', recipientID);
-    const mailPayload = {
-        from: 'testapplication1394@gmail.com',
-        to: user.emailID,
-        subject: 'mail from node js app',
-        text: 'receieved from node js application'
-    };
-    
-    transporter.sendMail(mailPayload ,(error, info) => {
-    if(error){
-        console.log('Error occured while sending mail', error.message);
-    } else {
-        console.log("email send" + info.response);
-    }
-    } )
-
-
-})
+app.post('/users', postRoutes.postRoute )
 
 app.patch('/users/:id', (req, res) => {
     User.findOneAndUpdate({_id: req.params.id},{
