@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 // tslint:disable-next-line: ordered-imports
 import { FormGroup, FormControl } from '@angular/forms';
 import { IUserDetails } from '../UserDetails';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,8 @@ export class RegisterComponent implements OnInit {
   public detailsForm: FormGroup;
   public userData: IUserDetails;
   public DBdata;
+  public isInvalidEmail: boolean;
+  userNameExists: boolean;
   constructor(private router: Router, private registerUserSer: RegisterUserService) { }
 
   public ngOnInit() {
@@ -41,6 +44,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public onClickSubmit() {
+   // const userUniqueID = Math.floor(100000 + Math.random() * 900000);
     this.name = this.detailsForm.controls.firstName.value;
     this.userData.firstName = this.detailsForm.controls.firstName.value;
     this.userData.lastName = this.detailsForm.controls.lastName.value;
@@ -50,15 +54,32 @@ export class RegisterComponent implements OnInit {
     this.userData.username = this.detailsForm.controls.username.value;
     this.userData.password = this.detailsForm.controls.password.value;
     this.userData.lastDonated = this.detailsForm.controls.lastDonated.value;
-    this.registerUserSer.postUserDetails(this.userData).subscribe((data) => {
-        console.log('dataaaaaaaaaa', data);
-        if(data){
-          console.log('success');
-        } else {
-          console.log('invalid email provided');
+   // this.userData.userUniqueID = userUniqueID;
+    this.registerUserSer.postUserDetails(this.userData).subscribe(data => {
+      this.isInvalidEmail = false;
+      console.log('dataaaaaaaaaa', data);
+      if (data) {
+        console.log('Verification link sent to email ,please check');
+     //   this.detailsForm.reset();
+        alert('Verification link sent to email ,please check and verify before logging in');
+      } else {
+        console.log('invalid email message');
+      }
+    },
+      (error: HttpErrorResponse) => {
+        console.log('error occured ' , error);
+        if (error.error.error === 'Username already exists') {
+            this.userNameExists = true;
+            this.detailsForm.reset();
+            alert('Sorry, This username is already taken please chooose another username');
+        }
+        ///  this.isInvalidEmail = true;
+        if (error.error.error === 'Email ID already exists') {
+          alert('Sorry, Email ID already exists');
+          console.log('Provided invalid Email ID');
         }
 
-    } );
+      });
 
   }
 }

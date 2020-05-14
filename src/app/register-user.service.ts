@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUserDetails } from './UserDetails';
+import { IUserDetails, IUserSignIn } from './UserDetails';
 
 
 
@@ -21,4 +21,11 @@ export class RegisterUserService {
     return this.http.post<IUserDetails>('http://localhost:3000/users', user);
   }
 
+  // signInUser(user: IUserSignIn): Observable<IUserSignIn> {
+  //   return this.http.get<IUserSignIn>('http://localhost:3000/signin', user);
+  // }
+
+   signInUser(user: IUserSignIn): Observable<> {
+    return this.http.get<IUserSignIn>('http://localhost:3000/signin/' + user.username + '/' + user.password);
+  }
 }

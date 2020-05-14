@@ -32,6 +32,9 @@ const UserSchema = new Schema({
     isVerified: {
         type: Boolean,
         default: false
+    },
+    uniqueUserId: {
+        type: Number
     }
 })
 // const tokenSchema = new mongoose.Schema({
