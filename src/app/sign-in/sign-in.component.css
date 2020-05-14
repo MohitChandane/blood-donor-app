@@ -14,3 +14,18 @@ span {
 .btn-success {
     float: right;
 }
+
+
+.register-form{
+    width: 500px;
+    margin-left: 30%;
+}
+
+.btn-submit{
+    float: right;
+    /* display: inline-block; */
+}
+.btn-cancel{
+    float: right;
+    margin-right: 30px;
+}
