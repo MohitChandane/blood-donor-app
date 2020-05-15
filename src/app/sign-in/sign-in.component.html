@@ -28,7 +28,7 @@
       <label for="first_name" class="control-label">First Name</label>
       <input type="text" class="form-control" id="first_name" name="first_name" formControlName="firstName"
         placeholder="First name">
-    </div>`
+    </div>
 
     <div class="form-group">
       <label for="last_name" class="control-label">Last Name</label>
@@ -51,20 +51,20 @@
     <div class="form-group">
       <label for="email" class="control-label">E-mail</label>
       <input type="text" class="form-control" id="email" name="email" formControlName="emailID"
-        placeholder="your@email.com">
+        placeholder="your@email.com" disabled>
     </div>
     <!-- <div *ngIf="isInvalidEmail">Provided a wrong ID , please try again</div> -->
 
     <div class="form-group">
       <label for="username" class="control-label">Username</label>
       <input type="text" class="form-control" id="username" name="username" formControlName="username"
-        placeholder="Username">
+        placeholder="Username" disabled>
     </div>
 
     <div class="form-group">
       <label for="password" class="control-label">Password</label>
       <input type="password" class="form-control" id="password" name="password" formControlName="password"
-        placeholder="*****">
+        placeholder="*****" disabled>
     </div>
     <div class="form-group">
       <label for="password" class="control-label">When you donated blood last time ?</label>
@@ -73,7 +73,7 @@
     
     <div>
       <span class="form-group">
-        <button type="submit" class="btn btn-primary btn-submit" (click)="onClickSignIn()">Submit</button>
+        <button type="submit" class="btn btn-primary btn-submit" (click)="onClickUpdate()">Update Information</button>
       </span>
 
       <span class="form-group">

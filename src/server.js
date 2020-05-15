@@ -74,11 +74,14 @@ app.get('/verifyme', verifyUser.verifyTheUser)
 
 app.post('/users', postRoutes.postRoute )
 
-app.patch('/users/:id', (req, res) => {
-    User.findOneAndUpdate({_id: req.params.id},{
+app.patch('/users/:username', (req, res) => {
+    console.log('req.body --- ' + req.body)
+    User.findOneAndUpdate({username: req.params.username},{
         $set: req.body
     }).then(() => {
-        res.sendStatus(200);
+        res.send({
+            status: 'User data updated'
+        });
     })
 })
 

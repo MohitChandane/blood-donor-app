@@ -13,7 +13,9 @@ export class SignInComponent implements OnInit {
   public signInForm: FormGroup;
   public updateUserForm: FormGroup;
   public signInDetails: IUserSignIn;
+  public updatedDetails: IUserDetails;
   showUpdateInfoForm: boolean;
+  public username: string;
   constructor(private router: Router, private signInService: RegisterUserService) { }
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class SignInComponent implements OnInit {
     this.initForm();
     this.initUpdateForm();
     this.signInDetails = {};
+    this.updatedDetails = {};
   }
 
   public initForm() {
@@ -92,5 +95,20 @@ export class SignInComponent implements OnInit {
 
   onClickCancel() {
     this.router.navigateByUrl('');
+  }
+
+  onClickUpdate() {
+    this.updatedDetails.address = this.updateUserForm.controls.address.value;
+//    this.updatedDetails.emailID = this.updateUserForm.controls.emailID.value;
+    this.updatedDetails.firstName = this.updateUserForm.controls.firstName.value;
+    this.updatedDetails.lastName = this.updateUserForm.controls.lastName.value;
+    this.updatedDetails.lastDonated = this.updateUserForm.controls.lastDonated.value;
+    this.updatedDetails.mobileNumber = this.updateUserForm.controls.mobileNumber.value;
+ //   this.updatedDetails.password = this.updateUserForm.controls.password.value;
+    this.updatedDetails.username = this.updateUserForm.controls.username.value;
+    this.signInService.updateUserInfo(this.updatedDetails).subscribe((data) => {
+
+      console.log('data in sign in component -- ', data);
+    });
   }
 }

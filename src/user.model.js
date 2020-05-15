@@ -2,7 +2,7 @@ const mongoose = require ('mongoose');
 var Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    firstName:{
+    firstName: {
         type: String,
         // required: true,
         // minlength:1,
@@ -35,6 +35,12 @@ const UserSchema = new Schema({
     },
     uniqueUserId: {
         type: Number
+    },
+    longitude: {
+        type:String
+    },
+    latitude: {
+        type: String
     }
 })
 // const tokenSchema = new mongoose.Schema({

@@ -9,6 +9,8 @@ export interface IUserDetails {
     lastDonated?: string;
     userUniqueID?: number;
     isVerified?: boolean;
+    longitude?: string;
+    latitude?: string;
 }
 
 export interface IUserSignIn {

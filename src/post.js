@@ -23,8 +23,11 @@ const postRoute = (req, res) => {
         username: req.body.username,
         password: req.body.password,
         lastDonated: req.body.lastDonated,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
         uniqueUserId: createUniqueUserId()
     };
+    console.log('data is sevrer is -- ' + user);
     // var usersID = req.body._id ;
     userDetails = user;
     const newUser = new User(
