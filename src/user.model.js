@@ -27,7 +27,7 @@ const UserSchema = new Schema({
         type: String
     },
     lastDonated: {
-        type: String
+        type: Date
     },
     isVerified: {
         type: Boolean,

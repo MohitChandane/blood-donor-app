@@ -16,6 +16,7 @@ export class SignInComponent implements OnInit {
   public updatedDetails: IUserDetails;
   showUpdateInfoForm: boolean;
   public username: string;
+  startDate: any;
   constructor(private router: Router, private signInService: RegisterUserService) { }
 
   ngOnInit() {
@@ -80,13 +81,13 @@ export class SignInComponent implements OnInit {
   }
 
   autoPopulateInfoForm(userInfo: IUserDetails) {
-
+    this.startDate = userInfo.lastDonated;
     console.log('userInfo is -- ', userInfo);
     this.updateUserForm.controls.address.patchValue(userInfo.address);
     this.updateUserForm.controls.emailID.patchValue(userInfo.emailID);
     this.updateUserForm.controls.firstName.patchValue(userInfo.firstName);
     this.updateUserForm.controls.lastName.patchValue(userInfo.lastName);
-    this.updateUserForm.controls.lastDonated.patchValue(userInfo.lastDonated);
+  // this.updateUserForm.controls.lastDonated.patchValue(userInfo.lastDonated);
     this.updateUserForm.controls.mobileNumber.patchValue(userInfo.mobileNumber);
     this.updateUserForm.controls.password.patchValue(userInfo.password);
     this.updateUserForm.controls.username.patchValue(userInfo.username);
@@ -108,7 +109,7 @@ export class SignInComponent implements OnInit {
     this.updatedDetails.username = this.updateUserForm.controls.username.value;
     this.signInService.updateUserInfo(this.updatedDetails).subscribe((data) => {
 
-      console.log('data in sign in component -- ', data);
+      // console.log('data in sign in component -- ', data);
     });
   }
 }

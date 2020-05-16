@@ -29,6 +29,6 @@ export class LandingComponent implements OnInit {
   }
 
   onClickBloodRequest() {
-    
+    this.router.navigateByUrl('/bloodrequest');
   }
 }

@@ -27,9 +27,9 @@ import { BloodRequesterComponent } from './blood-requester/blood-requester.compo
       AppRoutingModule,
       ReactiveFormsModule,
       HttpClientModule,
-      AgmCoreModule.forRoot(\r\napiKey
-   ]
-})
+      AgmCoreModule.forRoot({
+         apiKey: 'AIzaSyB_-vXmpiBPSC0BYwbvCbjIu4YqI_exVTc'
+       })
       ],
       providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, RegisterUserService],
       bootstrap: [

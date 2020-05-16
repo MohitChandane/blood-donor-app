@@ -17,3 +17,10 @@ export interface IUserSignIn {
     username?: string;
     password?: string;
 }
+
+export interface ICoordinates {
+    reqLat: number;
+    reqLon: number;
+    donLat: number;
+    donLon: number;
+}
