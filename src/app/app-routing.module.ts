@@ -4,6 +4,7 @@ import { LandingComponent } from './landing/landing.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { BloodRequesterComponent } from './blood-requester/blood-requester.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,9 @@ const routes: Routes = [
   {
     path: 'signIn', component: SignInComponent,
 
+  },
+  {
+    path: 'bloodrequest', component: BloodRequesterComponent
   },
   {path: '', redirectTo: '/', pathMatch: 'full'},
 ];

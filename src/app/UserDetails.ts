@@ -9,9 +9,18 @@ export interface IUserDetails {
     lastDonated?: string;
     userUniqueID?: number;
     isVerified?: boolean;
+    longitude?: string;
+    latitude?: string;
 }
 
 export interface IUserSignIn {
     username?: string;
     password?: string;
+}
+
+export interface ICoordinates {
+    reqLat: number;
+    reqLon: number;
+    donLat: number;
+    donLon: number;
 }

@@ -21,11 +21,15 @@ export class RegisterUserService {
     return this.http.post<IUserDetails>('http://localhost:3000/users', user);
   }
 
-  // signInUser(user: IUserSignIn): Observable<IUserSignIn> {
-  //   return this.http.get<IUserSignIn>('http://localhost:3000/signin', user);
-  // }
-
-   signInUser(user: IUserSignIn): Observable<> {
+  signInUser(user: IUserSignIn): Observable<any> {
     return this.http.get<IUserSignIn>('http://localhost:3000/signin/' + user.username + '/' + user.password);
+  }
+
+  updateUserInfo(editedDetails: IUserDetails): Observable<any> {
+    return this.http.patch<IUserDetails>('http://localhost:3000/users/' + editedDetails.username, editedDetails);
+  }
+
+  getUserDetails(): Observable<any> {
+    return this.http.get<IUserDetails>('http://localhost:3000/users');
   }
 }

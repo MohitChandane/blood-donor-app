@@ -19,3 +19,30 @@
 span {
 	margin-right: 30px;
 }
+
+.blood-donor {
+    float: left;
+    height: 100px;
+    margin: 10px;
+    width: 280px;
+    border: 2px solid red;
+	border-radius: 7px;
+	padding-top: 25px;
+    padding-left: 30px;
+}
+
+.blood-req {
+    width: 230px;
+    float: left;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid green;
+	border-radius: 7px;
+	padding-top: 25px;
+    padding-left: 30px;
+
+}
+.div-wrapper {
+	margin-left: 32%;
+	margin-top: 15%;
+}
