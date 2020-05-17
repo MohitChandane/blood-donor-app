@@ -1,11 +1,13 @@
 .login-page{
     margin: 0 auto;
     width: 250px;
-    margin-top: 14%;
+    /* margin-top: 14%; */
+    position: relative;
+    top: 110px;
 }
 span {
     display: block;
-    margin-top: 16px;
+    /* margin-top: 16px; */
 }
 
 .btn-wrapper {
@@ -29,3 +31,11 @@ span {
     float: right;
     margin-right: 30px;
 }
+.main-page{
+    background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
+    height: 950px;
+    }
+
+    body, html {
+      height: 100%;
+    }

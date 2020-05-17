@@ -1,3 +1,4 @@
+<div class="main-page">
 <div *ngIf="!showUpdateInfoForm">
   <form [formGroup]="signInForm" novalidate autocomplete="off" id="signIn-form">
     <div class="login-page">
@@ -43,14 +44,14 @@
         Last Name is required
       </span>
     </div>
-
+    
     <div class="form-group">
       <label for="mobile_number" class="control-label">Mobile Number</label>
       <input type="text" class="form-control" id="mobile_number" name="mobile_number" formControlName="mobileNumber"
-        placeholder="123456789">
+        placeholder="123456789" maxlength ="10" minlength="10">
         <span class="text-danger"
         *ngIf="(updateUserForm?.controls['mobileNumber']?.touched || isSubmitted) && updateUserForm?.controls['mobileNumber']?.invalid">
-        Mobile number is required
+        Valid 10 digit Mobile number is required
       </span>
     </div>
 
@@ -103,5 +104,6 @@
     </div>
 
   </form>
+</div>
 </div>
 </div>

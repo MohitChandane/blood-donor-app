@@ -12,3 +12,16 @@
     float: right;
     margin-right: 30px;
 }
+
+.main-page{
+    background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
+    height: 1200px;
+    }
+
+.heading{
+    font-size: 34px;
+    padding-left: 68px;
+    padding-top: 20px;
+    padding-bottom: 24px;
+    font-weight: 700;
+}
