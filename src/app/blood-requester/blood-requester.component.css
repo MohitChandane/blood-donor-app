@@ -1,0 +1,20 @@
+.agm-map{
+    height: 400px;
+    width: 700px;
+}
+
+.map-wrapper {
+    margin-left: 28%;
+}
+
+.table-wrapper {
+    width: 1000px;
+    margin-left: 14%;
+    margin-top: 5%;
+    height: 200px;
+}
+.heading{
+    font-size: 26px;
+    margin-left: 40%;
+    margin-top: 2%;
+}

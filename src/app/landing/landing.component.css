@@ -43,6 +43,23 @@ span {
 
 }
 .div-wrapper {
-	margin-left: 32%;
-	margin-top: 15%;
+	/* margin-left: 32%;
+    margin-top: 15%; */
+    position: relative;
+    top: 100px;
+    left: 410px;
 }
+.main-page{
+background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
+height: 700px;
+}
+
+.heading{
+    position: relative;
+    top: -46px;
+    left: 100px;
+}
+body, html {
+    height: 100%;
+  }
+  

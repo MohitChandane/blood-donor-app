@@ -14,6 +14,8 @@ export class BloodRequesterComponent implements OnInit {
   public resLongitude;
   public filteredUsers: IUserDetails[];
   showUsersTable: boolean;
+  public latitude: 18.5477155;
+  public longitude: 73.9183243;
   constructor( private registerUserSer: RegisterUserService, private router: Router) { }
 
   public donorsData;
