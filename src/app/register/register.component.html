@@ -1,5 +1,7 @@
+
+<div class="main-page">
 <div class="register-form">
-  <h3>User Information Form</h3>
+  <div class="heading">User Information Form</div>
   <form [formGroup]="detailsForm" novalidate autocomplete="off" id="details-form">
 
     <div class="form-group">
@@ -11,7 +13,7 @@
         First Name is required
       </span>
     </div>
-<!-- *ngIf="detailsForm?.controls['profileNumber']?.invalid && detailsForm?.controls['profileNumber']?.touched " -->
+
     <div class="form-group">
       <label for="last_name" class="control-label">Last Name</label>
       <input type="text" class="form-control" id="last_name" name="last_name" formControlName="lastName"
@@ -30,10 +32,6 @@
         *ngIf="(detailsForm?.controls['mobileNumber']?.touched || isSubmitted) && detailsForm?.controls['mobileNumber']?.invalid">
         Valid 10 digit Mobile number is required
       </span>
-      <!-- <span class="text-danger"
-      *ngIf="detailsForm?.controls['mobileNumber']?.minLength">
-      Enter minimum 10 digits
-    </span> -->
     </div>
 
     <div class="form-group">
@@ -96,4 +94,5 @@
     </div>
 
   </form>
+</div>
 </div>

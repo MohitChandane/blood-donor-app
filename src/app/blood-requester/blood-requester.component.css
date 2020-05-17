@@ -10,11 +10,17 @@
 .table-wrapper {
     width: 1000px;
     margin-left: 14%;
-    margin-top: 5%;
+    margin-top: 1%;
     height: 200px;
+    overflow: auto;
 }
 .heading{
-    font-size: 26px;
+    font-size: 34px;
     margin-left: 40%;
-    margin-top: 2%;
+    font-weight: 700;
+    padding-top: 20px;
 }
+.main-page{
+    background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
+    height: 800px;
+    }

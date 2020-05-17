@@ -29,6 +29,8 @@ span {
 	border-radius: 7px;
 	padding-top: 25px;
     padding-left: 30px;
+    margin-left: 20%;
+    margin-top: 6%;
 }
 
 .blood-req {
@@ -54,12 +56,16 @@ background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
 height: 700px;
 }
 
-.heading{
+/* .heading{
     position: relative;
     top: -46px;
     left: 100px;
-}
+} */
 body, html {
-    height: 100%;
-  }
-  
+  height: 100%;
+}
+.heading {
+    font-size: 44px;
+    margin-left: 32%;
+    font-weight: 700;
+}

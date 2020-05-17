@@ -44,7 +44,7 @@ export class SignInComponent implements OnInit {
       firstName: ['', Validators.required],
       lastDonated: ['', Validators.required],
       lastName: ['', Validators.required],
-      mobileNumber: ['', Validators.required],
+      mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       password: ['', Validators.required],
       username: ['', Validators.required],
     });
