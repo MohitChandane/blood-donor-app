@@ -1,71 +1,31 @@
-.main-div {
-    /* width: 500px;
-	height: 150px;
-	background-color: aqua; */
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-    margin: auto;
-
-}
-.btn-wrapper {
-	margin: 0 auto;
-    width: 500px;
-    margin-top: 14%;
-}
-span {
-	margin-right: 30px;
-}
-
-.blood-donor {
-    float: left;
-    height: 100px;
-    margin: 10px;
-    width: 280px;
-    border: 2px solid red;
-	border-radius: 7px;
-	padding-top: 25px;
-    padding-left: 30px;
-    margin-left: 20%;
-    margin-top: 6%;
-}
-
-.blood-req {
-    width: 230px;
-    float: left;
-    height: 100px;
-    margin: 10px;
-    border: 2px solid green;
-	border-radius: 7px;
-	padding-top: 25px;
-    padding-left: 30px;
-
-}
-.div-wrapper {
-	/* margin-left: 32%;
-    margin-top: 15%; */
-    position: relative;
-    top: 100px;
-    left: 410px;
-}
 .main-page{
-background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
-height: 700px;
+    background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
+    height: 1200px;
 }
+.title{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+.blood-req {
+  width: 230px;
+  float: left;
+  height: 100px;
+  margin: 10px;
+  border: 2px solid green;
+  border-radius: 7px;
+  padding-top: 25px;
+  padding-left: 30px;
 
-/* .heading{
-    position: relative;
-    top: -46px;
-    left: 100px;
-} */
-body, html {
-  height: 100%;
 }
-.heading {
-    font-size: 44px;
-    margin-left: 32%;
-    font-weight: 700;
+.blood-donor {
+  float: left;
+  height: 100px;
+  margin: 10px;
+  width: 280px;
+  border: 2px solid red;
+  border-radius: 7px;
+  padding-top: 25px;
+  padding-left: 30px;
 }
