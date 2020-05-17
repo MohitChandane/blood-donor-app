@@ -54,13 +54,13 @@ const postRoute = (req, res) => {
 
     User.count({ emailID: user.emailID }).then((emailIDCount) => {
         if (emailIDCount > 0) {
-            return res.status(200).json({
+            return res.status(400).json({
                 error: "Email ID already exists"
             })
         } else {
             User.count({ username: user.username }).then((usernameCount) => {
                 if (usernameCount > 0) {
-                    return res.status(200).json({
+                    return res.status(400).json({
                         error: "Username already exists"
                     })
                 }
@@ -68,13 +68,13 @@ const postRoute = (req, res) => {
                     transporter.sendMail(mailPayload, (error, info) => {
                         if (error) {
                             console.log('Error occured while sending mail', error.message);
-                            return res.status(200).json({
+                            return res.status(400).json({
                                 error: "email not vaild"
                             })
                         } else {
                             newUser.save((err, result) => { //save in databade
                                 if (err) {
-                                    return res.status(200).json({
+                                    return res.status(400).json({
                                         error: err
                                     })
                                 }
