@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const { User } = require('./user.model')
 const postRoutes = require('./post')
 const verifyUser = require('./verify')
+const fetch = require('./fetch-users');
 const app = express();
+const NodeGeocoder = require('node-geocoder');
 
 const cors = require('cors')
 
@@ -77,3 +79,58 @@ app.delete('/users/:id', (req, res) => {
         res.send(removedUser);
     })
 })
+
+app.post('/fetchusers', (req,res) => {
+    
+    const data = {
+        zipcode: req.body.zipcode
+    }
+    const options = {
+        provider: 'opencage',
+        //  apiKey: 'AIzaSyB_-vXmpiBPSC0BYwbvCbjIu4YqI_exVTc' // google  
+        apiKey: '4ad88fb03c0c4d64a3bcb97ee38408bc', // OpenCage
+    };
+    const geocoder = NodeGeocoder(options);
+    geocoder.geocode(req.body.zipcode)
+        .then((data) => {
+            console.log(data[0]);
+            const location = {
+                lat: data[0].latitude,
+                long: data[0].longitude
+            }
+          //  return location;
+          return  res.status(200).json({
+                location
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(404).json({
+                status: "Invalid Zipcode provided"
+            })
+        })
+    
+    // console.log('data in fetch -- ' +  req.body.zipcode);
+    // res.status(200).json({
+    //     location
+    // })
+})
+// const options = {
+//     provider: 'opencage',
+//     //  apiKey: 'AIzaSyB_-vXmpiBPSC0BYwbvCbjIu4YqI_exVTc' // google  
+//     apiKey: '4ad88fb03c0c4d64a3bcb97ee38408bc', // OpenCage
+// };
+// const geocoder = NodeGeocoder(options);
+// geocoder.reverse(' solapur')
+//     .then((res) => {
+//         console.log(res);
+//         // const location = {
+//         //     lat: res[0].latitude,
+//         //     long: res[0].longitude
+//         // }
+//        // return resolve(location);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//      //   return reject(err)
+//     })

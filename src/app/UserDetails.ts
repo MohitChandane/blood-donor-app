@@ -11,6 +11,8 @@ export interface IUserDetails {
     isVerified?: boolean;
     longitude?: string;
     latitude?: string;
+    zipcode?: string;
+    bloodgroup?: string;
 }
 
 export interface IUserSignIn {
@@ -24,3 +26,125 @@ export interface ICoordinates {
     donLat: number;
     donLon: number;
 }
+
+export interface IReqZipcode {
+    zipcode: string;
+}
+// mock data
+
+// public uData = [{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },
+//   {
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   },{
+//     firstName: 'mohit',
+//     lastName: 'chandane',
+//     mobileNumber: '1863182921',
+//     emailID: 'emial.com',
+//     address: 'asdsadsdsad'
+//   }];

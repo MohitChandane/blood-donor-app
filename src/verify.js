@@ -1,4 +1,4 @@
-const {rand, userDetails} = require('./post')
+
 const { User } = require('./user.model')
 const verifyTheUser = (req, res) => {
     host=req.get('host');
@@ -11,7 +11,7 @@ const verifyTheUser = (req, res) => {
         if(req.query.id== document.uniqueUserId)
         {
         User.findOneAndUpdate({uniqueUserId: document.uniqueUserId},{
-            $set:{isVerified: true}}).then((newDocument) => {
+            $set:{isVerified: true, uniqueUserId:''}}).then((newDocument) => {
                 console.log("new updated document is -- " + newDocument)
             })
            res.send("Congrats your email has been verified, please proceed to log in")

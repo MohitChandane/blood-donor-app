@@ -1,16 +1,42 @@
 <div class="main-page">
 <div class="heading">List of Blood Donors</div>
-
-<div>
-  <button type="submit" class="btn btn-primary btn-cancel " (click)="onClickCancel()"
-style="margin-left: 80%;">Go Back</button>
+<div class="search-bar">
+  <form [formGroup]="requesterForm" novalidate autocomplete="off" id="requester-form">
+  <div class="form-group">
+    <label for="zipcode" class="control-label">Zipcode</label>
+    <input type="text" class="form-control" id="zipcode" name="zipcode" formControlName="zipcode"
+      placeholder="Your zipcode" maxlength="6">
+      <span class="text-danger"
+      *ngIf="(requesterForm?.controls['zipcode']?.touched || isSubmitted) && requesterForm?.controls['zipcode']?.invalid">
+      6 Digits zipcode is required
+    </span>
+    <span class="text-danger" *ngIf="showZipcodeError">Please enter valid zipcode</span>
+    <span class="text-danger" *ngIf="showNoDataErr">Sorry !!! No data found</span>
+    <input type="number" class="form-control" style="margin-top:10px" id="distance" name="distance" formControlName="distance"
+      placeholder="Distance to search in KM">
+      <span class="text-danger"
+      *ngIf="(requesterForm?.controls['distance']?.touched || isSubmitted) && requesterForm?.controls['distance']?.invalid">
+      Enter the distance to be searched within.
+    </span>
+      <div>
+        <button type="submit" class="btn btn-primary btn-cancel " style="margin-top:10px" (click)="sendRequesterData()"
+          >Search</button>
+        <button type="submit" class="btn btn-primary btn-cancel " style="float: right;margin-top:10px;" (click)="onClickCancel()" >Go
+          Back</button>
+      </div>
+   
+  </div>
+  </form>
+  <!-- <button type="submit" class="btn btn-primary btn-cancel " (click)="onClickCancel()"
+style="margin-left: 80%;">Go Back</button> -->
 </div>
-<div class="table-wrapper">
+<div class="table-wrapper" *ngIf="showResultTable">
   <table class="table table-striped table-bordered table-dark">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
+        <th scope="col">Blood group</th>
         <th scope="col">Contact number</th>
         <th scope="col">Email ID</th>
         <th scope="col">Address</th>
@@ -20,6 +46,7 @@ style="margin-left: 80%;">Go Back</button>
       <tr *ngFor="let user of filteredUsers; let i = index ">
         <th scope="row">{{i+1}}</th>
         <td>{{user.firstName }} {{user.lastName}}</td>
+        <td>{{user.bloodgroup}}</td>
         <td>{{user.mobileNumber}}</td>
         <td>{{user.emailID}}</td>
         <td>{{user.address}}</td>
@@ -32,7 +59,7 @@ style="margin-left: 80%;">Go Back</button>
 
 
 <div class="map-wrapper">
-  <agm-map [latitude]="latitude" [longitude]="longitude" class="agm-map">
+  <agm-map [latitude]="18.5477155" [longitude]="73.9183243" class="agm-map">
     <agm-marker  *ngFor="let data of filteredUsers; let i = index" [latitude]="data.latitude" [longitude]="data.longitude"></agm-marker>
   </agm-map>
 </div>

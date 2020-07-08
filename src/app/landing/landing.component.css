@@ -1,8 +1,18 @@
 .main-page{
     background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
-    height: 1200px;
+    height: 900px;
 }
-.title{
+.masthead-brand {
+  margin: 40px 40px;
+}
+button{
+  margin: 10px;
+}
+
+.mb-auto {
+  margin-bottom: 6% !important;
+}
+/* .title{
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -28,4 +38,4 @@
   border-radius: 7px;
   padding-top: 25px;
   padding-left: 30px;
-}
+} */

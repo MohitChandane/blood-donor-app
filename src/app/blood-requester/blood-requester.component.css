@@ -5,6 +5,7 @@
 
 .map-wrapper {
     margin-left: 28%;
+    margin-top: 2%;
 }
 
 .table-wrapper {
@@ -15,12 +16,17 @@
     overflow: auto;
 }
 .heading{
-    font-size: 34px;
+    font-size: 38px;
     margin-left: 40%;
     font-weight: 700;
     padding-top: 20px;
 }
 .main-page{
     background-image: url('../../assets/e271fda72f1e158b5f0569cc72d36d7f.jpg');
-    height: 800px;
+    height: 1000px;
     }
+.search-bar {
+    width: 1000px;
+position: relative;
+left: 14%
+}
