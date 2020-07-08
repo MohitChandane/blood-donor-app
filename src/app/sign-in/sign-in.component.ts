@@ -17,6 +17,7 @@ export class SignInComponent implements OnInit {
   showUpdateInfoForm: boolean;
   public username: string;
   public isSubmitted = false;
+  public isSignedIn = false;
   startDate: any;
   public todaysDate = new Date();
   constructor(private router: Router, private signInService: RegisterUserService,
@@ -31,9 +32,13 @@ export class SignInComponent implements OnInit {
   }
 
   public initForm() {
-    this.signInForm = new FormGroup({
-      password: new FormControl(''),
-      username: new FormControl(''),
+    // this.signInForm = new FormGroup({
+    //   password: new FormControl(''),
+    //   username: new FormControl(''),
+    // });
+    this.signInForm = this.fb.group({
+      password: ['', Validators.required],
+      username: ['', Validators.required],
     });
   }
 
@@ -50,23 +55,43 @@ export class SignInComponent implements OnInit {
     });
   }
   onClickSignIn() {
-    const user = this.signInForm.controls.username.value;
-    this.signInDetails.username = user.trim();
-    this.signInDetails.password = this.signInForm.controls.password.value;
-    this.signInService.signInUser(this.signInDetails).subscribe((data) => {
-      console.log('data is -- ', data);
-      if (data && data.username) {
-        this.autoPopulateInfoForm(data);
-        this.showUpdateInfoForm = true;
-      }
-      if (data.status === 'User not verified') {
-        alert('Looks like you have not verified your email account, please check inbox and click on the link given');
-      }
-      if (data.status === 'Invalid user') {
-        alert('Oooops, Wrong Username/Password');
-      }
-      // }
-    });
+    this.isSignedIn = true;
+    if (this.signInForm.valid) {
+      const user = this.signInForm.controls.username.value;
+      this.signInDetails.username = user.trim();
+      this.signInDetails.password = this.signInForm.controls.password.value;
+      this.signInService.signInUser(this.signInDetails).subscribe((data) => {
+        console.log('data is -- ', data);
+        if (data && data.username) {
+          this.autoPopulateInfoForm(data);
+          this.showUpdateInfoForm = true;
+        }
+        if (data.status === 'User not verified') {
+          alert('Looks like you have not verified your email account, please check inbox and click on the link given');
+        }
+        if (data.status === 'Invalid user') {
+          alert('Oooops, Wrong Username/Password');
+        }
+        // }
+      });
+    }
+    // const user = this.signInForm.controls.username.value;
+    // this.signInDetails.username = user.trim();
+    // this.signInDetails.password = this.signInForm.controls.password.value;
+    // this.signInService.signInUser(this.signInDetails).subscribe((data) => {
+    //   console.log('data is -- ', data);
+    //   if (data && data.username) {
+    //     this.autoPopulateInfoForm(data);
+    //     this.showUpdateInfoForm = true;
+    //   }
+    //   if (data.status === 'User not verified') {
+    //     alert('Looks like you have not verified your email account, please check inbox and click on the link given');
+    //   }
+    //   if (data.status === 'Invalid user') {
+    //     alert('Oooops, Wrong Username/Password');
+    //   }
+    //   // }
+    // });
   }
 
   autoPopulateInfoForm(userInfo: IUserDetails) {

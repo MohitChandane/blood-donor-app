@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUserDetails, IUserSignIn } from './UserDetails';
+import { IUserDetails, IUserSignIn, IReqZipcode } from './UserDetails';
 
 
 
@@ -31,5 +31,10 @@ export class RegisterUserService {
 
   getUserDetails(): Observable<any> {
     return this.http.get<IUserDetails>('http://localhost:3000/users');
+  }
+
+  postRequesterData(user: IReqZipcode): Observable<any> {
+    console.log('user in postRequesterData -- ', user);
+    return this.http.post<any>('http://localhost:3000/fetchusers', user);
   }
 }

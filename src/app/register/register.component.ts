@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   public longitude;
   public isSubmitted = false;
   public todaysDate = new Date();
-
+  public showLoader = false;
   constructor(private router: Router, private registerUserSer: RegisterUserService,
               private agmCore: AgmCoreModule, private fb: FormBuilder) { }
 
@@ -53,9 +53,12 @@ export class RegisterComponent implements OnInit {
       mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       password: ['', Validators.required],
       username: ['', Validators.required],
+      zipcode: ['', Validators.required],
+      bloodgroup: ['', Validators.required]
     });
   }
   public onClickSubmit() {
+    this.showLoader = true;
     this.isSubmitted = true;
     if (this.detailsForm.valid) {
       if (navigator) {
@@ -71,12 +74,15 @@ export class RegisterComponent implements OnInit {
           this.userData.username = this.detailsForm.controls.username.value;
           this.userData.password = this.detailsForm.controls.password.value;
           this.userData.lastDonated = this.detailsForm.controls.lastDonated.value;
+          this.userData.zipcode = this.detailsForm.controls.zipcode.value;
+          this.userData.bloodgroup = this.detailsForm.controls.bloodgroup.value;
           this.userData.longitude = this.longitude;
           this.userData.latitude = this.latitude;
           this.registerUserSer.postUserDetails(this.userData).subscribe(data => {
             this.isInvalidEmail = false;
-            console.log('dataaaaaaaaaa', data);
+            console.log('dataaaaaaaaaa', this.userData);
             if (data) {
+              this.showLoader = false;
               console.log('Verification link sent to email ,please check');
               //   this.detailsForm.reset();
               alert('Verification link sent to email ,please check and verify before logging in');

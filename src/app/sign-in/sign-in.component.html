@@ -7,9 +7,15 @@
         <span>User Name</span>
         <input class="form-control" type="text" formControlName="username" placeholder="Username">
       </div>
+      <span class="text-danger" *ngIf="(signInForm?.controls['username']?.touched || isSignedIn) && signInForm?.controls['username']?.invalid">
+        Please enter the username
+      </span>
       <div>
         <span>Password</span>
         <input class="form-control" type="password" formControlName="password" placeholder="Password">
+        <span class="text-danger" *ngIf="(signInForm?.controls['password']?.touched || isSignedIn) && signInForm?.controls['password']?.invalid">
+          Please enter the password
+        </span>
       </div>
       <div class="btn-wrapper">
         <button type="button" class="btn btn-primary" (click)="onClickCancel()">Cancel</button>
@@ -44,7 +50,7 @@
         Last Name is required
       </span>
     </div>
-    
+
     <div class="form-group">
       <label for="mobile_number" class="control-label">Mobile Number</label>
       <input type="text" class="form-control" id="mobile_number" name="mobile_number" formControlName="mobileNumber"
@@ -64,13 +70,12 @@
         Address is required
       </span>
     </div>
-
+<!-- 
     <div class="form-group">
       <label for="email" class="control-label">E-mail</label>
       <input type="text" class="form-control" id="email" name="email" formControlName="emailID"
         placeholder="your@email.com" disabled>
     </div>
-    <!-- <div *ngIf="isInvalidEmail">Provided a wrong ID , please try again</div> -->
 
     <div class="form-group">
       <label for="username" class="control-label">Username</label>
@@ -82,7 +87,7 @@
       <label for="password" class="control-label">Password</label>
       <input type="password" class="form-control" id="password" name="password" formControlName="password"
         placeholder="*****" disabled>
-    </div>
+    </div> -->
     <div class="form-group">
       <label for="password" class="control-label">When you donated blood last time ?</label>
       <input type="date" [ngModel]="startDate | date:'yyyy-MM-dd'" class="form-control" formControlName="lastDonated"

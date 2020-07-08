@@ -4,9 +4,6 @@ var Schema = mongoose.Schema;
 const UserSchema = new Schema({
     firstName: {
         type: String,
-        // required: true,
-        // minlength:1,
-        // trim: true
     },
     lastName: {
         type: String
@@ -34,14 +31,21 @@ const UserSchema = new Schema({
         default: false
     },
     uniqueUserId: {
-        type: Number
+        type: String
     },
     longitude: {
         type:String
     },
     latitude: {
         type: String
+    },
+    zipcode: {
+        type: String
+    },
+    bloodgroup: {
+        type: String
     }
+
 })
 // const tokenSchema = new mongoose.Schema({
 //     _userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
